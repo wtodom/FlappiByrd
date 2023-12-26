@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://rwpntbeh24hw"]
+
+[ext_resource type="Texture2D" uid="uid://ca0al5w5tojyh" path="res://sprites/background-day.png" id="1_kfd03"]
+
+[node name="Background" type="TextureRect"]
+z_index = -100
+offset_right = 648.0
+offset_bottom = 1152.0
+texture = ExtResource("1_kfd03")

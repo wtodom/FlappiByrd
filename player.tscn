@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://2rh4q648l1te"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_2btsl"]
+[ext_resource type="Texture2D" uid="uid://h41b78lpnyk5" path="res://sprites/bluebird-midflap.png" id="1_4rw2o"]
+[ext_resource type="Texture2D" uid="uid://bnetju72515o4" path="res://sprites/bluebird-upflap.png" id="2_3r3r6"]
+[ext_resource type="Texture2D" uid="uid://d12n1sm3nbepw" path="res://sprites/bluebird-downflap.png" id="3_igfil"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qyln"]
+radius = 25.0
+height = 74.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wsix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4rw2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_igfil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_4rw2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3r3r6")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+position = Vector2(60, 450)
+script = ExtResource("1_2btsl")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7qyln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7wsix")
+animation = &"flap"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

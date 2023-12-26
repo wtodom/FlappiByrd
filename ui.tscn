@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl5b3v26x6x60"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_m4paa"]
+
+[sub_resource type="Theme" id="Theme_h64xk"]
+default_font_size = 64
+
+[sub_resource type="Theme" id="Theme_e0avk"]
+default_font_size = 64
+
+[sub_resource type="Theme" id="Theme_uysby"]
+default_font_size = 64
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_m4paa")
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -432.0
+offset_right = 100.0
+offset_bottom = -332.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_h64xk")
+text = "Start"
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 60.0
+offset_right = 20.0
+offset_bottom = 148.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_e0avk")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -176.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_uysby")
+text = "Flappi Byrd"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MessageTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
