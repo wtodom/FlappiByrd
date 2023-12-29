@@ -8,7 +8,7 @@ var screen_size # Size of the game window.
 var flap_start
 var progress = 0
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
@@ -19,7 +19,6 @@ func start(pos):
 	$AnimatedSprite2D.play()
 	$CollisionShape2D.disabled = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2(0, delta * 9.8)
 	rotation = PI / 6
@@ -47,7 +46,6 @@ func _process(delta):
 			rotation = 0
 		else:
 			rotation = -PI / 6
-
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
