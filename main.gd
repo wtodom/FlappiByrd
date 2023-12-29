@@ -27,6 +27,7 @@ func new_game():
 	$UI.show_message("Get Ready")
 	$Player.start($StartPosition.position)
 	$BackgroundMusic.play()
+	$PipeTimer.start()
 	$StartTimer.start()
 
 
