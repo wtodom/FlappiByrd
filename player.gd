@@ -35,17 +35,12 @@ func _process(delta):
 		progress = $FlapTimer.time_left / $FlapTimer.wait_time
 		var next_point = _quadratic_bezier(
 			flap_start,
-			Vector2(flap_start.x + 150, flap_start.y - 300),
-			Vector2(flap_start.x + 280, flap_start.y),
+			Vector2(flap_start.x + 110, flap_start.y - 330),
+			Vector2(flap_start.x + 230, flap_start.y),
 			progress
 		)
 		position.y = next_point.y
-		if progress < 0.4:
-			rotation = PI / 6
-		elif progress < 0.6:
-			rotation = 0
-		else:
-			rotation = -PI / 6
+		rotation = (-PI / 6) + (1 - progress) * (PI / 3)
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
