@@ -32,7 +32,7 @@ func _on_pipe_timer_timeout():
 		if part.name != 'VisibleOnScreenNotifier2D':
 			part.linear_velocity = velocity
 			part.position.y -= delta_y
-	#add_child(pipe)
+	add_child(pipe)
 
 func _on_player_score_increased():
 	score += 1
