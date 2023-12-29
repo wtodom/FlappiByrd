@@ -18,6 +18,8 @@ script = ExtResource("1_wij0a")
 
 [node name="Gap" type="RigidBody2D" parent="."]
 position = Vector2(735, 756)
+collision_layer = 4
+collision_mask = 0
 gravity_scale = 1.66533e-16
 linear_damp_mode = 1
 
@@ -29,8 +31,11 @@ debug_color = Color(0.917647, 0.956863, 0, 0.419608)
 [node name="Pipe" type="RigidBody2D" parent="."]
 z_index = -1
 position = Vector2(680, 2.08165e-12)
+collision_layer = 2
+collision_mask = 0
 gravity_scale = 1.66533e-16
 linear_damp_mode = 1
+angular_damp_mode = 1
 
 [node name="PipeTop" type="Sprite2D" parent="Pipe"]
 position = Vector2(0, 154)
