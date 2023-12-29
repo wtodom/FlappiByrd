@@ -5,7 +5,7 @@ var score
 
 
 func _ready():
-	pass
+	$Player.set_process(false)
 
 func _process(delta):
 	pass
@@ -19,8 +19,8 @@ func new_game():
 	score = 0
 	$UI.update_score(score)
 	$UI.show_message("Get Ready")
-	$Player.start($StartPosition.position)
 	$BackgroundMusic.play()
+	$StartTimer.start()
 	$PipeTimer.start()
 
 func _on_pipe_timer_timeout():
@@ -32,9 +32,14 @@ func _on_pipe_timer_timeout():
 		if part.name != 'VisibleOnScreenNotifier2D':
 			part.linear_velocity = velocity
 			part.position.y -= delta_y
-	add_child(pipe)
+	#add_child(pipe)
 
 func _on_player_score_increased():
 	score += 1
 	$ScoreSound.play()
 	$UI.update_score(score)
+
+
+func _on_start_timer_timeout():
+	$Player.start($StartPosition.position)
+	$Player.set_process(true)
